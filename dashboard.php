@@ -35,6 +35,21 @@
 			  }
 			});
 		})	
+
+		jQuery('.customer_listing').click(function(){
+			$.ajax({
+			  url: '/customer_listing.php',
+			  type: 'POST',
+			  data: 'access_token=' + getToken,
+			  success: function(data) {
+				jQuery('.text').html(data);
+			  },
+			  error: function(e) {
+				//called when there is an error
+				console.log(e.message);
+			  }
+			});
+		})	
 	});
 	
 </script>
@@ -74,6 +89,7 @@
 	<ul>
 		<li><a class="product_listing" style="cursor: pointer; color: white">Product Listing</a></li>
 		<li><a class="order_listing" style="cursor: pointer; color: white">Order Listing</a></li>
+		<li><a class="customer_listing" style="cursor: pointer; color: white">Customer Listing</a></li>
 	</ul>
 
 	<div class="json_response">
